@@ -1,8 +1,16 @@
 # Svelte + TS + Vite
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+Entirely WIP.
+
+This template is a simple example ecommerce site using Svelte, Netlify, and Stripe.
+
+Using Vite for build, and Typescript Netlify functions for now.
 
 ## Svelte Ecommerce Site
+
+Two ways of running this site locally: 
+ - Simply run the UI standalone.
+ - Run the Stripe webhooks and Netlify functions/env with the site locally for testing checkout flow.
 
 ## Commands
 
