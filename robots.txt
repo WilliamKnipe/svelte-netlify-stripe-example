@@ -1,0 +1,10 @@
+# robots.txt for NanaMango
+
+# User-agent: *
+# ---Sitemaps---
+# Sitemap: something/sitemap.xml - how to generate
+
+# ---URLs---
+
+Disallow: /*/bag
+Disallow: /*/success

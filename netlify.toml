@@ -1,0 +1,27 @@
+[build]
+  command = "yarn build"
+  publish = "dist"
+  functions = "functions"
+
+[dev]
+  publish = "dist"
+  functions = "functions"
+  framework = "vite"
+  targetPort = 5173
+  # This port is for servering the proxy ( combo of vite FE from 5173 and netlify functions on another port)
+  port = 8080
+
+[template.environment]
+  STRIPE_PUBLISHABLE_KEY = "Add your Stripe publishable key here: pk_test_xxx"
+  STRIPE_SECRET_KEY = "Add your Stripe secret key here: sk_test_xxx"
+  STRIPE_WEBHOOK_SECRET = "[Optional] Add your webhook secret here: whsec_xxx"
+
+[functions]
+  directory = "functions/"
+  included_files = ["data/*.json"]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api"
+  to = "/.netlify/functions"
+  status = 200

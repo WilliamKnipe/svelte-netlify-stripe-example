@@ -1,0 +1,181 @@
+:root {
+  /* CSS Variables - Woo-hoo */
+
+  /* Colour Palette */
+	--colour-white: #FFFFFF;
+	--colour-slate-grey: #555555;
+	--brand-light-grey: #F7F7F7;
+	--colour-eee: #EEEEEE;
+	--theme-hue: 20;
+	--mango-orange: #FF8200;
+	--mango-yellow: #FFC422;
+	--mango-green: #027B7B;
+
+  /* Themed Colour Tones */
+	--theme-tone-1: hsl(var(--theme-hue), 32%, 97%);
+	--theme-tone-2: hsl(var(--theme-hue), 15%, 92%);
+	--theme-tone-3: hsl(var(--theme-hue), 14%, 82%);
+	--theme-tone-4: hsl(var(--theme-hue), 13%, 70%);
+	--theme-tone-5: hsl(var(--theme-hue), 12%, 60%);
+	--theme-tone-6: hsl(var(--theme-hue), 10%, 50%);
+	--theme-tone-7: hsl(var(--theme-hue), 12%, 40%);
+	--theme-tone-8: hsl(var(--theme-hue), 18%, 30%);
+	--theme-tone-9: hsl(var(--theme-hue), 20%, 25%);
+	--theme-tone-10: hsl(var(--theme-hue), 20%, 18%);
+	--theme-tone-11: hsl(var(--theme-hue), 22%, 8%);
+	--theme-hue-comp: calc(var(--theme-hue) + 180);
+	--theme-hue-triad-plus: calc(var(--theme-hue) + 120);
+	--theme-hue-triad-minus: calc(var(--theme-hue) - 120);
+	--theme-hue-analagous-plus: calc(var(--theme-hue) + 30);
+	--theme-hue-analagous-minus: calc(var(--theme-hue) - 30);
+
+  /* To do complementary, just change the theme-hue to another hue. */
+
+  /* Theme Highlight Colours */
+	--highlight-colour: hsl(var(--theme-hue-c), 24%, 65%);
+	--highlight-colour-l: hsl(var(--theme-hue-c), 33%, 70%);
+	--highlight-secondary-colour: hsl(var(--theme-hue-c), 24%, 65%);
+
+  /* Colour Scheme */
+	--colour-primary: hsl(var(--theme-hue), 64%, 42%);
+	--colour-primary-l: hsl(var(--theme-hue), 64%, 52%);
+	--font-colour: var(--gradient-9);
+	--font-colour-2: var(--gradient-10);
+	--background-colour: var(--colour-white);
+	--background-colour-2: var(--colour-eee);
+	--link-colour: var(--highlight-colour);
+
+  /* Borders */
+	--border-colour: var(--gradient-3);
+	--border-colour-2: var(--colour-eee);
+
+  /* Buttons */
+	--button-colour: var(--colour-white);
+	--button-background: var(--primary-colour);
+	--button-disabled-background: var(--colour-eee);
+	--button-hover-background: var(--primary-colour-l);
+	--button-secondary-color: var(--primary-colour);
+	--button-secondary-background: var(--colour-eee);
+	--button-secondary-disabled-background: var(--colour-eee);
+	--button-secondary-hover-background: var(--primary-colour);
+
+  /* cubic bezier */
+	--cubic-bezier: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+  /* Input and Forms */
+	--input-background: var(--background-colour);
+	--input-colour: var(--font-colour);
+	--input-border: var(--font-colour);
+
+	/* Font Sizes */
+	--font-size-sm: calc(0.625rem + 0.2vw);
+	--font-size: calc(0.8750rem + 0.2vw);
+	--font-size-m: calc(1rem + 0.5vw);
+	--font-size-lg: calc(1.5rem + 0.5vw);
+	--top-bar-height: 50px;
+
+  /* */
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+	color: var(--font-colour);
+	background-color: var(--background-colour);
+	margin: 0;
+	font-size: var(--default-font-size);
+	box-sizing: border-box;
+	font-family: Helvetica, Arial, sans-serif;
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: var(--medium-font-size);
+}
+
+h2 {
+	font-size: var(--medium-font-size);
+}
+
+h3 {
+	font-size: var(--default-font-size);
+}
+
+a {
+	color: var(--link-colour);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: var(--link-colour);
+}
+
+label {
+	display: block;
+}
+
+input, button, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	-webkit-padding: 0.4em 0;
+	padding: 0.4em 1em;
+	margin: 0 0 0.5em 0;
+	box-sizing: border-box;
+	border: 1px solid var(--border-colour);
+	border-radius: 2px;
+}
+
+input, select, textarea {
+	border: 1px solid var(--input-border);
+	background-color: var(--input-background);
+	color: var(--input-colour);
+}
+input:-internal-autofill-selected, input:-webkit-autofill, input:autofill {
+	border: 1px solid var(--input-border);
+	background-color: var(--input-background);
+	color: var(--input-colour);
+}
+
+input:disabled {
+	color: var(--border-colour);
+}
+
+button {
+	color: var(--button-colour);
+	background-color: var(--button-background);
+	outline: none;
+	cursor: pointer;
+}
+
+button:disabled {
+	cursor: auto;
+	color: var(--font-secondary-colour);
+	background-color: var(--button-disabled-background);
+}
+
+button:focus button:hover button:not(:disabled):active {
+	color: var(--font-secondary-colour);
+	border-color: var(--button-hover-background);
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */

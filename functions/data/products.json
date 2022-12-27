@@ -1,0 +1,30 @@
+[
+  {
+    "sku": "sku",
+    "name": "This Pretty Plant",
+    "description": "Look at this pretty plant. Photo by Galina N on Unsplash.",
+    "image": "https://images.unsplash.com/photo-1598300056393-4aac492f4344?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1068&q=80",
+    "price": {
+      "numericPrice": 10000,
+      "currency": "£",
+      "formattedPrice": "£100"
+    },
+    "currency": "GBP",
+    "stock": 100,
+    "outOfStock": false
+  },
+  {
+    "sku": "sku2",
+    "name": "Adventure Mug",
+    "description": "We’re going on an adventure! Photo by Annie Spratt on Unsplash.",
+    "image": "https://images.unsplash.com/photo-1576528418822-5ddc2568621b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+    "price": {
+      "numericPrice": 7000,
+      "currency": "£",
+      "formattedPrice": "£70"
+    },
+    "currency": "GBP",
+    "stock": 100,
+    "outOfStock": false
+  }
+]
