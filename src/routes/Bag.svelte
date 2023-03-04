@@ -13,16 +13,15 @@
 
   const getTotalPrice = (lineItems: LineItem[]): string => {
     let total = 0;
-    lineItems.forEach(item =>
-    {
-      total = item.quantity * item.price.numericPrice + total
-    })
+    lineItems.forEach((item) => {
+      total = item.quantity * item.price.numericPrice + total;
+    });
     return `£${total}`;
-  }
+  };
 
   const onClickCheckoutHandler = async (lineItems) => {
     const data = {
-        lineItems,
+      lineItems,
     };
     const response = await fetch("/.netlify/functions/create-checkout", {
       method: "POST",
@@ -33,8 +32,9 @@
     }).then((res) => res.json());
 
     const stripe = await newStripe(response.publishableKey);
-    console.log('responseSessionId', response.sessionId);
-    stripe.redirectToCheckout({ sessionId: response.sessionId })
+    console.log("responseSessionId", response.sessionId);
+    stripe
+      .redirectToCheckout({ sessionId: response.sessionId })
       .then(function (result) {
         // If `redirectToCheckout` fails due to a browser or network
         // error, you should display the localized error message to your
@@ -50,7 +50,7 @@
 </script>
 
 <svelte:head>
-	<title>Svelte Netlify Stripe - Bag</title>
+  <title>Svelte Netlify Stripe - Bag</title>
 </svelte:head>
 
 <div>
@@ -60,7 +60,7 @@
     <div>Name</div>
     <div>Quantity</div>
     <div>Price</div>
-    <div></div>
+    <div />
     {#each $bag.lineItems as item (item.sku)}
       <img src={item.image} alt={item.name} />
       <div class="name">

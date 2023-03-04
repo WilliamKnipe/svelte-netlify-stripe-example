@@ -1,10 +1,9 @@
 <svelte:head>
-    <title>Svelte Netlify Stripe - Success</title>
+  <title>Svelte Netlify Stripe - Success</title>
 </svelte:head>
 
 <div>
-    Success! 
-    Thanks for shopping with us 😊
+  Success! Thanks for shopping with us 😊
 
-    <p>Your Order</p>
+  <p>Your Order</p>
 </div>
