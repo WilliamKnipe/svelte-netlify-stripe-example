@@ -1,4 +1,4 @@
-# robots.txt for NanaMango
+# robots.txt for Svelte Netlify Stripe Example
 
 # User-agent: *
 # ---Sitemaps---

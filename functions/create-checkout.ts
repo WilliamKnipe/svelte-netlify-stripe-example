@@ -2,9 +2,9 @@
  * This function creates a Stripe Checkout session and returns the session ID
  * for use with Stripe.js (specifically the redirectToCheckout method).
  */
-import Stripe from 'stripe';
+import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
-  apiVersion: '2022-11-15',
+  apiVersion: "2022-11-15",
   maxNetworkRetries: 2,
 });
 
@@ -22,7 +22,7 @@ import { LineItem } from "./types/functions";
 
 const validateLineItem = ({ sku, quantity }: LineItem): void => {
   const foundProduct = inventory.find((p) => p.sku === sku);
-  console.log('foundProduct', foundProduct);
+  console.log("foundProduct", foundProduct);
   if (!foundProduct) {
     throw Error("validateLineItem - SKU is invalid");
   }
@@ -40,23 +40,21 @@ interface StripeLineItem {}
 const createLineItems = (lineItems: LineItem[], products): StripeLineItem[] => {
   const stripeLineItems: StripeLineItem[] = [];
 
-  lineItems.forEach(item => {
+  lineItems.forEach((item) => {
     const foundProduct = products.find((p) => p.sku === item.sku);
-    stripeLineItems.push(
-      {
-        price_data: {
-                currency: 'gbp',
-                unit_amount: foundProduct?.price.numericPrice,
-                product_data: {
-                  name: item.name,
-                  description: foundProduct?.description,
-                  images: [foundProduct?.image],
-                },
-              },
-              quantity: item.quantity,
-      }
-    )
-  })
+    stripeLineItems.push({
+      price_data: {
+        currency: "gbp",
+        unit_amount: foundProduct?.price.numericPrice,
+        product_data: {
+          name: item.name,
+          description: foundProduct?.description,
+          images: [foundProduct?.image],
+        },
+      },
+      quantity: item.quantity,
+    });
+  });
   return stripeLineItems;
 };
 
@@ -70,7 +68,7 @@ const createMetaLineItems = (lineItems: LineItem[]): MetaLineItem[] => {
     return {
       sku: item.sku,
       quantity: item.quantity,
-      name: item.name
+      name: item.name,
     };
   });
 };
@@ -83,7 +81,7 @@ exports.handler = async (event) => {
 
   const lineItems = body.lineItems;
 
-  if(lineItems.length < 0){
+  if (lineItems.length < 1) {
     throw Error("create-checkout - no line items in payload");
   }
   lineItems.forEach((lineItem) => {
